@@ -1,0 +1,210 @@
+//Universidade Federal de Sergipe
+//Linguagens Formais e Tradutores
+//Projeto Compilador - Gramática Portugol
+//Alunos: André Teixeira 
+
+Package projetolft; // package name
+
+Helpers
+        digitos = ['0' .. '9'] ;
+        letras = [['a' .. 'z'] + ['A' .. 'Z']];  
+        underline = '_';
+
+        unicode_input_character = [0..0xffff];
+        ht  = 9;
+        lf  = 10;
+        ff  = 12;
+        cr  = 13;
+                line_termoinator = lf | cr | cr lf;
+                input_character = [unicode_input_character - [cr + lf]];
+                branco = ' ';
+     caracteres_validos = [input_character - [''' + '\']];
+	 
+States
+        normal,  
+        comentado;
+   
+Tokens
+
+//separadores
+        {normal}virgula = ',' ;
+        {normal}dois_pontos = ':' ;
+        {normal}ponto_virgula = ';' ;
+        {normal}ponto = '.' ;
+        {normal}paren_esq = '(' ;
+        {normal}paren_dir = ')' ;
+        {normal}colchete_esq = '[';
+        {normal}colchete_dir = ']';
+
+//simbolos aritmeticos
+        {normal}mais = '+' ;
+        {normal}menos = '-' ;
+        {normal}multiplicacao = '*' ;
+        {normal}div_int = '/';
+        {normal}menor_que = '<';
+        {normal}menor_igual = '<=';
+        {normal}maior_que = '>';
+        {normal}maior_igual = '>=';
+        {normal}atribuicao = '<-';
+        {normal}igual = '=';
+        {normal}diferente = '<>';
+        {normal}e = 'e';
+        {normal}ou = 'ou';
+        {normal}xor = 'xor';
+
+//palavras reservadas  
+   {normal}faca = 'faca';
+   {normal}ate = 'ate';
+   {normal}escreva = 'escreva';
+   {normal}leia = 'leia';
+   {normal}enquanto = 'enquanto';
+   {normal}constante = 'const';
+   {normal}para = 'para';
+   {normal}repita = 'repita';
+   {normal}inicio = 'inicio';
+   {normal}programa = 'programa';
+   {normal}real= 'real';
+   {normal}inteiro = 'inteiro';
+   {normal}caractere = 'caractere';
+   {normal}se = 'se';
+   {normal}de = 'de';
+   {normal}passo = 'passo';
+   {normal}entao = 'entao';
+   {normal}avalie = 'avalie';
+   {normal}senao = 'senao';
+   {normal}caso = 'caso';
+   {normal}fim_p = 'fim.';
+   {normal}fim_avalie = 'fim avalie';
+   {normal}fim_se  = 'fim se';
+   {normal}fim_para = 'fim para';
+   {normal}fim_enquanto = 'fim enquanto';
+   {normal}nao = 'nao';
+  
+   {normal}blanks = branco+| cr lf +| cr+ | lf +|ht+;
+   {normal}numero_int= digitos+;
+   {normal}numero_real = digitos+'.'digitos+;
+   
+   {normal} string ='''caracteres_validos*''';
+   {normal}identificador = (letras (letras | digitos|underline)*)  | (underline (letras | digitos|underline)*);
+  
+
+  
+//comentarios  
+//comentario = '/*' not_star+ '*'+ (not_star_not_slash not_star* '*'+)* '/';
+ 
+    {normal}comentario_linha = '//' input_character* line_termoinator?;
+    {normal->comentado, comentado} comentado_a = '/*';
+    {comentado} corpo = [unicode_input_character -['*' + '/']]*;
+    {comentado} estrela = '*';
+    {comentado} barra = '/';
+    {comentado} comentado_final = '*/';
+   
+   
+  
+Ignored Tokens
+ //comentario,
+    comentado_a, comentado_final, corpo, estrela, barra,
+    comentario_linha,
+    blanks;
+	
+Productions
+
+start= {start} programa_est;
+vazio = ;
+//estrutura básica do código
+programa_est = programa identificador inicio declaracao comando  fim_p;
+
+//conjunto de declarações  (s = simples, m  = multipla)
+declaracao = {decl_m} tipo_variavel dois_pontos decl_m ponto_virgula
+             |constante identificador valor ponto_virgula;
+decl_s=  variavel;
+decl_m = variavel virgula decl_m| {decl_s} decl_s; 
+
+//definição de uma variavel
+variavel = {var_n} identificador | {var_v} identificador colchete_esq numero_int colchete_dir;
+
+//Tipo de dados
+valor =  {num_int} numero_int|{num_real} numero_real| {char} string;   //resolver caractere
+
+//Tipo das variaveis
+tipo_variavel = {numero_real}real |{num_int} inteiro |{caractere} caractere;
+
+//Atribuição			 
+atribui = variavel atribuicao exp ponto_virgula; 			 
+
+//Leia			 
+leia_est = leia paren_esq leia_m paren_dir ponto_virgula;
+leia_s = variavel;
+leia_m = variavel virgula leia_m| {leia_s} leia_s;
+
+//Escreva
+escreva_est = escreva paren_esq escreva_m paren_dir ponto_virgula;
+escreva_s = exp;
+escreva_m = exp virgula escreva_m | {escreva_s} escreva_s;
+
+//Estrutura das expressoes (retirado dos slides)
+exp = termo exp1| {v}variavel|{me} menos exp;
+exp1 = soma termo exp1|{nada} vazio ;
+soma = {mais} mais| {menos} menos;
+termo = fator termo1;
+termo1 = mult fator termo1|{nada} vazio;
+mult = {mult} multiplicacao | {div} div_int;
+fator = paren_esq exp paren_dir|{valoor}valor;
+
+//auxilia a gerar explogicas
+exp_a =  {termo} termo_a|  {mais} exp_a soma_a termo_a| {var} variavel;
+soma_a= {mais } mais|  {menos} menos;
+termo_a =  {fat} fator_a | {mult} termo_a mult_a fator_a;
+mult_a = {mult} multiplicacao |  {div}  div_int ;
+fator_a = {expressao} paren_esq explogica paren_dir| {valor} valor| {mmm} menos fator_a;
+
+//resolve primeira parte das expressoes logicas
+termo_exp = {exp} exp_a
+|{exp1} termo_exp igual exp_a
+|{exp2} termo_exp diferente exp_a
+|{exp3} termo_exp menor_igual exp_a
+|{exp4} termo_exp maior_igual exp_a
+|{exp5} termo_exp menor_que exp_a
+|{exp6} termo_exp maior_que exp_a;
+//resolve segunda parte das expressoes logicas
+termo_expl =  {fat} termo_exp
+|{term} termo_expl e termo_exp
+|{term1} termo_expl ou termo_exp
+|{term2} termo_expl xor termo_exp;
+
+//Estrutura expressoes logicas
+explogica = {termo} termo_expl|{nao} nao explogica;
+
+//Repita
+repita_est = repita comando ate explogica ponto_virgula;
+
+//Para (for1 e for2 definem as variações de tipos do para)
+para_est = {for} para variavel de numero_int for1| {for_passo} para variavel de numero_int for2 ; 
+for1= ate numero_int faca comando fim_para ponto_virgula;
+for2 = passo numero_int for1;
+
+//Enquanto
+enquanto_est = enquanto  paren_esq explogica paren_dir faca comando fim_enquanto ponto_virgula;
+
+//Estrutura se ou se-senao  (se_sen = se com senao)
+se_est = se paren_esq explogica paren_dir entao comando fim_se ponto_virgula
+|{else} se paren_esq  explogica paren_dir entao comando se_sen;
+se_sen = senao comando fim_se ponto_virgula;
+ 
+//Estrutura avalie (caso_m = multiplos comandos em um caso)
+avalie_est = avalie paren_esq exp paren_dir caso_m fim_avalie ponto_virgula
+|{avalie} avalie paren_esq exp paren_dir caso_m senao dois_pontos comando fim_avalie ponto_virgula;
+caso_m = {caso} caso_m caso valor dois_pontos comando| vazio;			
+
+//Comandos válidos
+comando = {decl} declaracao comando
+|{atribui} atribui comando
+|{ler} leia_est comando
+|{escrever} escreva_est comando
+|{laco1} repita_est comando
+|{laco2} para_est comando
+|{laco3} enquanto_est comando
+|{se} se_est comando
+|{case}avalie_est comando
+|{vazio} vazio; 
+

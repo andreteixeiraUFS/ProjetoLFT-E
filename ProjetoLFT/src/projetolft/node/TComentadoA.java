@@ -31,5 +31,9 @@ public final class TComentadoA extends Token
         ((Analysis) sw).caseTComentadoA(this);
     }
 
-  
+    @Override
+    public void setText(@SuppressWarnings("unused") String text)
+    {
+        throw new RuntimeException("Cannot change TComentadoA text.");
+    }
 }

@@ -2,6 +2,7 @@ package projetolft;
 
 
 
+import java.time.Clock;
 import projetolft.lexer.Lexer;
 import projetolft.lexer.LexerException;
 import projetolft.node.*;
@@ -38,11 +39,13 @@ public class MyLexer extends Lexer {
                     token = null;
                 } else {
                     //Final de um aninhamento
-                    //System.out.print(text.toString());
-                    comment.setText(text.toString());
+                   //text.toString();
+                    //comment.setText(text.toString());
                     token = comment;
+                  
                     state = State.NORMAL;
                     comment = null;
+                     // System.out.println(text.toString());
                 }
             }
         }

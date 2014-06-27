@@ -1,28 +1,79 @@
-programa Teste
+programa teste
  inicio
-/*isso /*/*cionasim*/78*/fun/*/*cionasim*/78*/ec*/   
-var inicio
-  enquanto (4> 3) faca
-,
-fim.
-4.5
-e
-'
-teste
-para i <- 5     ate 20 faca
-inicio
-enquanto 5 
-+
-- *-
-<=
-//coments
-inicio
-//    outro tipo de comentario
-inic2
-:
-e1
-_e1xpto_____747q8_
-leia
-fim enquanto
-fim para
+const pi 6;
+const pi 'x'; 
+const x 'olamundo';
+   real: kkkk;
+
+repita escreva(5); 
+      escreva(2);
+        escreva (4);
+repita escreva(5);
+  escreva(8);
+ate x=y;
+escreva(6);
+ ate 8+4 < 8+6;
+
+para xis de 1 ate 20 faca
+	escreva (0);
+	leia(xis);
+	escreva(45);
+		para octa de 1 passo 2 ate 40 faca
+			repita escreva(5);
+				escreva(8);
+			ate 7<>8;
+		fim para;
+fim para;
+ 
+ enquanto (9+3<9*2)faca
+ escreva(8);
+ 
+		
+ 
+				 
+ 
+ x<-8;
+ fim enquanto;
+ 
+ escreva(8); 
+  y<- 45;
+ inteiro : umbeterraba, dois;
+
+real : um, dois;
+inteiro: vet[5], id, vet2[40];
+inteiro: um;
+xxx <- 9;
+escreva (5);
+
+enquanto( x>y ou y<z) faca
+fim enquanto;
+
+enquanto( x< -5) faca
+fim enquanto;
+
+leia (um, dois);
+
+avalie (8)
+caso 1 : escreva(1); escreva(5);
+caso 2: escreva (3);
+escreva(7*4);
+fim avalie;
+
+
+se (x>9) entao
+fim se;
+x<-'beta'+'gama';
+
+se (5 ou 5 < 7 e 8) entao
+escreva ('x');
+fim se;
+
+se (nao 5 ou 4) entao
+escreva ('x');
+fim se;
+
+se (beta=gama) entao 
+escreva('ola mundo cruel');
+fim se;
+
 fim.

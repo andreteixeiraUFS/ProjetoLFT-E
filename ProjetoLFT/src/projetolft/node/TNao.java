@@ -5,16 +5,16 @@ package projetolft.node;
 import projetolft.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TFimRepita extends Token
+public final class TNao extends Token
 {
-    public TFimRepita()
+    public TNao()
     {
-        super.setText("fim repita");
+        super.setText("nao");
     }
 
-    public TFimRepita(int line, int pos)
+    public TNao(int line, int pos)
     {
-        super.setText("fim repita");
+        super.setText("nao");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class TFimRepita extends Token
     @Override
     public Object clone()
     {
-      return new TFimRepita(getLine(), getPos());
+      return new TNao(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTFimRepita(this);
+        ((Analysis) sw).caseTNao(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TFimRepita text.");
+        throw new RuntimeException("Cannot change TNao text.");
     }
 }
