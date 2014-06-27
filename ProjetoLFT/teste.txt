@@ -61,7 +61,7 @@ se (x>9) entao
 fim se;
 x<-'beta'+'gama';
 
-se (5 ou 5 < 7 e 8) entao
+se (nao 5 ou 5 < 7 e 8) entao
 escreva ('x');
 fim se;
 
