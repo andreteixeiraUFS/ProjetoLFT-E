@@ -706,41 +706,41 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         outAExp(node);
     }
 
-    public void inAVExp(AVExp node)
+    public void inAVarExp(AVarExp node)
     {
         defaultIn(node);
     }
 
-    public void outAVExp(AVExp node)
+    public void outAVarExp(AVarExp node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAVExp(AVExp node)
+    public void caseAVarExp(AVarExp node)
     {
-        inAVExp(node);
+        inAVarExp(node);
         if(node.getVariavel() != null)
         {
             node.getVariavel().apply(this);
         }
-        outAVExp(node);
+        outAVarExp(node);
     }
 
-    public void inAMeExp(AMeExp node)
+    public void inAMenosExp(AMenosExp node)
     {
         defaultIn(node);
     }
 
-    public void outAMeExp(AMeExp node)
+    public void outAMenosExp(AMenosExp node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAMeExp(AMeExp node)
+    public void caseAMenosExp(AMenosExp node)
     {
-        inAMeExp(node);
+        inAMenosExp(node);
         if(node.getExp() != null)
         {
             node.getExp().apply(this);
@@ -749,7 +749,7 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         {
             node.getMenos().apply(this);
         }
-        outAMeExp(node);
+        outAMenosExp(node);
     }
 
     public void inAExp1(AExp1 node)
@@ -1266,20 +1266,20 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         outAValorFatorA(node);
     }
 
-    public void inAMmmFatorA(AMmmFatorA node)
+    public void inAMenosFatorA(AMenosFatorA node)
     {
         defaultIn(node);
     }
 
-    public void outAMmmFatorA(AMmmFatorA node)
+    public void outAMenosFatorA(AMenosFatorA node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAMmmFatorA(AMmmFatorA node)
+    public void caseAMenosFatorA(AMenosFatorA node)
     {
-        inAMmmFatorA(node);
+        inAMenosFatorA(node);
         if(node.getFatorA() != null)
         {
             node.getFatorA().apply(this);
@@ -1288,7 +1288,7 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         {
             node.getMenos().apply(this);
         }
-        outAMmmFatorA(node);
+        outAMenosFatorA(node);
     }
 
     public void inAExpTermoExp(AExpTermoExp node)
@@ -2207,20 +2207,20 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         outAAtribuiComando(node);
     }
 
-    public void inALerComando(ALerComando node)
+    public void inALeiaComando(ALeiaComando node)
     {
         defaultIn(node);
     }
 
-    public void outALerComando(ALerComando node)
+    public void outALeiaComando(ALeiaComando node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseALerComando(ALerComando node)
+    public void caseALeiaComando(ALeiaComando node)
     {
-        inALerComando(node);
+        inALeiaComando(node);
         if(node.getComando() != null)
         {
             node.getComando().apply(this);
@@ -2229,23 +2229,23 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         {
             node.getLeiaEst().apply(this);
         }
-        outALerComando(node);
+        outALeiaComando(node);
     }
 
-    public void inAEscreverComando(AEscreverComando node)
+    public void inAEscreveraComando(AEscreveraComando node)
     {
         defaultIn(node);
     }
 
-    public void outAEscreverComando(AEscreverComando node)
+    public void outAEscreveraComando(AEscreveraComando node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAEscreverComando(AEscreverComando node)
+    public void caseAEscreveraComando(AEscreveraComando node)
     {
-        inAEscreverComando(node);
+        inAEscreveraComando(node);
         if(node.getComando() != null)
         {
             node.getComando().apply(this);
@@ -2254,23 +2254,23 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         {
             node.getEscrevaEst().apply(this);
         }
-        outAEscreverComando(node);
+        outAEscreveraComando(node);
     }
 
-    public void inALaco1Comando(ALaco1Comando node)
+    public void inARepitaComando(ARepitaComando node)
     {
         defaultIn(node);
     }
 
-    public void outALaco1Comando(ALaco1Comando node)
+    public void outARepitaComando(ARepitaComando node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseALaco1Comando(ALaco1Comando node)
+    public void caseARepitaComando(ARepitaComando node)
     {
-        inALaco1Comando(node);
+        inARepitaComando(node);
         if(node.getComando() != null)
         {
             node.getComando().apply(this);
@@ -2279,23 +2279,23 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         {
             node.getRepitaEst().apply(this);
         }
-        outALaco1Comando(node);
+        outARepitaComando(node);
     }
 
-    public void inALaco2Comando(ALaco2Comando node)
+    public void inAParaComando(AParaComando node)
     {
         defaultIn(node);
     }
 
-    public void outALaco2Comando(ALaco2Comando node)
+    public void outAParaComando(AParaComando node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseALaco2Comando(ALaco2Comando node)
+    public void caseAParaComando(AParaComando node)
     {
-        inALaco2Comando(node);
+        inAParaComando(node);
         if(node.getComando() != null)
         {
             node.getComando().apply(this);
@@ -2304,23 +2304,23 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         {
             node.getParaEst().apply(this);
         }
-        outALaco2Comando(node);
+        outAParaComando(node);
     }
 
-    public void inALaco3Comando(ALaco3Comando node)
+    public void inAEnquantoComando(AEnquantoComando node)
     {
         defaultIn(node);
     }
 
-    public void outALaco3Comando(ALaco3Comando node)
+    public void outAEnquantoComando(AEnquantoComando node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseALaco3Comando(ALaco3Comando node)
+    public void caseAEnquantoComando(AEnquantoComando node)
     {
-        inALaco3Comando(node);
+        inAEnquantoComando(node);
         if(node.getComando() != null)
         {
             node.getComando().apply(this);
@@ -2329,7 +2329,7 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         {
             node.getEnquantoEst().apply(this);
         }
-        outALaco3Comando(node);
+        outAEnquantoComando(node);
     }
 
     public void inASeComando(ASeComando node)
@@ -2357,20 +2357,20 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         outASeComando(node);
     }
 
-    public void inACaseComando(ACaseComando node)
+    public void inAAvalieComando(AAvalieComando node)
     {
         defaultIn(node);
     }
 
-    public void outACaseComando(ACaseComando node)
+    public void outAAvalieComando(AAvalieComando node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseACaseComando(ACaseComando node)
+    public void caseAAvalieComando(AAvalieComando node)
     {
-        inACaseComando(node);
+        inAAvalieComando(node);
         if(node.getComando() != null)
         {
             node.getComando().apply(this);
@@ -2379,7 +2379,7 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         {
             node.getAvalieEst().apply(this);
         }
-        outACaseComando(node);
+        outAAvalieComando(node);
     }
 
     public void inAVazioComando(AVazioComando node)

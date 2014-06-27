@@ -1,6 +1,6 @@
 /* Universidade Federal de Sergipe
  Linguagens Formais e Tradutores
- Projeto Compilador - Parte Lexica 
+ Projeto Compilador - Parte Sintatica 
  Alunos: Andre Teixeira */
 
 package projetolft;
@@ -9,9 +9,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PushbackReader;
-import java.io.Reader;
+import java.util.Scanner;
 import projetolft.lexer.LexerException;
-import projetolft.node.Start;
 import projetolft.parser.Parser;
 import projetolft.parser.ParserException;
 
@@ -22,39 +21,53 @@ import projetolft.parser.ParserException;
 public class Main_Parser {
 	public static void main(String[] args) throws FileNotFoundException,
 			ParserException, LexerException {
-		String leitor = null;
-		
+
 		/*
-		 * 
-		 * 
-		 * Lembrar de indicar caminho do arquivo teste como argumento no
-		 * eclipse!!!
+		 * Para testar diretamente no eclipse usar linhas comentadas a baixo ou
+		 * adicionar o caminho do .txt teste nos argumentos da execucao
 		 */
-       
-		
-		// leitor = "C:\\workspace\\ProjetoLFT-E\\ProjetoLFT\\teste.txt";
-			leitor = args[0];
-		
-  System.out.println ("           Analisador sintatico");
-  System.out.println ("Codigo de entrada: "+ args[0]);
-  
+		//args = new String[1];
+		//args[0]="C://workspace//ProjetoLFT-E//ProjetoLFT//teste.txt";
+
+		if (args.length == 0) {
+			args = new String[1];
+    		Scanner ent = new Scanner(System.in);
+    		System.out.println("\n\nDigite o caminho do arquivo de código fonte Portugol ");
+			System.out.println("Exemplo de caminho: C:\\Users\\Fulano\\Documentos\\codigo.txt ");
+    		args[0]= ent.nextLine();
+    		ent.close();
+    	}
+
+		System.out.println("           Analisador sintatico\n");
+		System.out.println("Codigo de entrada: " + args[0]);
+
 		for (String arg : args) {
 			try {
-				Parser p = new Parser(new MyLexer(new PushbackReader(new FileReader(leitor))));
+				Parser p = new Parser(new MyLexer(new PushbackReader(
+						new FileReader(args[0]), 1024)));
 
 				// Parse the input.
-				Start tree = p.parse();
-
+				 p.parse();
+				 String name = p.getClass().getSimpleName();
+                               
+                 if (name.equals("Parser")) {
+                 
+                 	throw new ArithmeticException();
+                  
+                 }
 			} catch (ParserException e) {
-				System.out.println("Erro sintatico detalhes: \n" + e);
+				System.out.println("\nErro sintatico detectado!");
+				System.out.println ("Detalhes: Linha,Coluna "+e.getMessage());
 			} catch (IOException e) {
-             System.out.println("Arquivo de entrada nao encontrado");
-			} 
-			catch (LexerException e) {
-				System.out.println("ERRO: " + e);
-			}
+				System.out.println("Arquivo de entrada nao encontrado");
+			} catch (LexerException e) {
+				System.out.println("\nErro lexico, O compilador nao pode continuar");
+				System.out.println ("Detalhes: Linha,Coluna "+e.getMessage());
+			}catch (ArithmeticException f){
+				System.out.println("\nA Estrutura Lexica e Sintatica do código esta OK!");
+            }
 
 		}
-		System.out.println("Estrutura Lexica e Sintatica OK!");
+		
 	}
 }

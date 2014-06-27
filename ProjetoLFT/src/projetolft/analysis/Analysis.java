@@ -38,8 +38,8 @@ public interface Analysis extends Switch
     void caseAEscrevaM(AEscrevaM node);
     void caseAEscrevaSEscrevaM(AEscrevaSEscrevaM node);
     void caseAExp(AExp node);
-    void caseAVExp(AVExp node);
-    void caseAMeExp(AMeExp node);
+    void caseAVarExp(AVarExp node);
+    void caseAMenosExp(AMenosExp node);
     void caseAExp1(AExp1 node);
     void caseANadaExp1(ANadaExp1 node);
     void caseAMaisSoma(AMaisSoma node);
@@ -62,7 +62,7 @@ public interface Analysis extends Switch
     void caseADivMultA(ADivMultA node);
     void caseAExpressaoFatorA(AExpressaoFatorA node);
     void caseAValorFatorA(AValorFatorA node);
-    void caseAMmmFatorA(AMmmFatorA node);
+    void caseAMenosFatorA(AMenosFatorA node);
     void caseAExpTermoExp(AExpTermoExp node);
     void caseAExp1TermoExp(AExp1TermoExp node);
     void caseAExp2TermoExp(AExp2TermoExp node);
@@ -91,13 +91,13 @@ public interface Analysis extends Switch
     void caseACasoM(ACasoM node);
     void caseADeclComando(ADeclComando node);
     void caseAAtribuiComando(AAtribuiComando node);
-    void caseALerComando(ALerComando node);
-    void caseAEscreverComando(AEscreverComando node);
-    void caseALaco1Comando(ALaco1Comando node);
-    void caseALaco2Comando(ALaco2Comando node);
-    void caseALaco3Comando(ALaco3Comando node);
+    void caseALeiaComando(ALeiaComando node);
+    void caseAEscreveraComando(AEscreveraComando node);
+    void caseARepitaComando(ARepitaComando node);
+    void caseAParaComando(AParaComando node);
+    void caseAEnquantoComando(AEnquantoComando node);
     void caseASeComando(ASeComando node);
-    void caseACaseComando(ACaseComando node);
+    void caseAAvalieComando(AAvalieComando node);
     void caseAVazioComando(AVazioComando node);
 
     void caseTVirgula(TVirgula node);

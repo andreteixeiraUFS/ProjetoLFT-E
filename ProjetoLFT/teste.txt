@@ -28,9 +28,6 @@ fim para;
  enquanto (9+3<9*2)faca
  escreva(8);
  
-		
- 
-				 
  
  x<-8;
  fim enquanto;
@@ -68,12 +65,41 @@ se (5 ou 5 < 7 e 8) entao
 escreva ('x');
 fim se;
 
+
+
 se (nao 5 ou 4) entao
 escreva ('x');
 fim se;
+
+
+
+
+avalie ((7+0/8-(-8)-90-6))
+caso 1 : escreva(1); escreva(5);
+fim avalie;
+
+avalie (oi)
+caso 1 : escreva(1); escreva(5);
+fim avalie;
+
 
 se (beta=gama) entao 
 escreva('ola mundo cruel');
 fim se;
 
+se ((5+8)=gama) entao 
+escreva('ola mundo cruel');
+fim se;
+
+se (beta>(5+8)) entao 
+escreva('ola mundo cruel');
+fim se;
+
+se (beta ou (5+8)) entao 
+escreva('ola mundo cruel');
+fim se;
+
+se (8*3 ou (5+8)) entao 
+escreva('ola mundo cruel');
+fim se;
 fim.

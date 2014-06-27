@@ -4,37 +4,38 @@
  Alunos: Andre Teixeira */
 package projetolft;
 
-import java.io.File;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PushbackReader;
 import java.util.Scanner;
-
 import projetolft.lexer.*;
 import projetolft.node.*;
 
 public class Main {
 	
+		
     public static void main(String[] args) throws IOException {
-        
-    	String leitor = null;
 
-	
-		/*
-		 * 
-		 * 
-		 * Lembrar de indicar caminho do arquivo teste como argumento no
-		 * eclipse!!!
-		 */
-    	// leitor = "C:\\workspace\\ProjetoLFT-E\\ProjetoLFT\\teste.txt";
-		leitor = args[0];
+ /*Para testar diretamente no eclipse usar linhas comentadas a baixo
+  * ou adicionar o caminho do .txt teste nos argumentos da execucao
+  * */
+    	//args = new String[1];
+    	//args[0]="C://workspace//ProjetoLFT-E//ProjetoLFT//teste.txt";
    
+    	if (args.length==0){
+    		args = new String[1];
+    		Scanner ent = new Scanner(System.in);
+    		System.out.println("\n\nDigite o caminho do arquivo de código fonte Portugol ");
+			System.out.println("Exemplo de caminho: C:\\Users\\Fulano\\Documentos\\codigo.txt ");
+    		args[0]= ent.nextLine();
+    		ent.close();
+    	}
+    			
         int linha = 0, coluna = 0;
         for (String arg : args) {
             try {
-                //leitor = new FileReader(arg);
-                MyLexer lex = new MyLexer(new PushbackReader(new FileReader(
-						leitor)));
+               MyLexer lex = new MyLexer(new PushbackReader(new FileReader(args[0]), 1024));
 
 
                 while (true) {
@@ -42,7 +43,9 @@ public class Main {
                     String name = tok.getClass().getSimpleName();
 
                     if (name.equals("EOF")) {
-                        break;
+                    	
+                    	throw new ArithmeticException();
+                     
                     } else {
                         name = name.substring(1, name.length()); //retirar T
                         name = name + "'" + tok.getText() + "'\n ";
@@ -57,15 +60,16 @@ public class Main {
                     }
                 }
 
-            } catch (LexerException e) { //erros comuns
-                System.out.println("Erro lexico na Linha: " + linha + " Coluna: " + coluna + ", O compilador nao pode continuar");
-            } catch (IOException f) { //erros fins
-                System.out.println("Erro lexico na Linha: " + linha + ", O compilador nao pode continuar");
+            } catch (LexerException e) { //erros
+                System.out.println("\nErro lexico na Linha: " + linha + " Coluna: " + (coluna+1) + ", O compilador nao pode continuar");
+                System.out.println ("Detalhes: "+e.getMessage());
+            } catch (ArithmeticException f){
+            	System.out.println("\nAnalise lexica concluida com sucesso!");
             }
             System.out.println("\n");
         }
    
-        System.out.println("Compilado com Sucesso");
+        
 
     }
 

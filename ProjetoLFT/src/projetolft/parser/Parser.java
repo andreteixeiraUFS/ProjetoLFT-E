@@ -354,13 +354,13 @@ public class Parser
                 push(goTo(16), list, false);
             }
             break;
-            case 26: /* reduce AVExp */
+            case 26: /* reduce AVarExp */
             {
                 ArrayList<Object> list = new26();
                 push(goTo(16), list, false);
             }
             break;
-            case 27: /* reduce AMeExp */
+            case 27: /* reduce AMenosExp */
             {
                 ArrayList<Object> list = new27();
                 push(goTo(16), list, false);
@@ -498,7 +498,7 @@ public class Parser
                 push(goTo(27), list, false);
             }
             break;
-            case 50: /* reduce AMmmFatorA */
+            case 50: /* reduce AMenosFatorA */
             {
                 ArrayList<Object> list = new50();
                 push(goTo(27), list, false);
@@ -672,31 +672,31 @@ public class Parser
                 push(goTo(40), list, false);
             }
             break;
-            case 79: /* reduce ALerComando */
+            case 79: /* reduce ALeiaComando */
             {
                 ArrayList<Object> list = new79();
                 push(goTo(40), list, false);
             }
             break;
-            case 80: /* reduce AEscreverComando */
+            case 80: /* reduce AEscreveraComando */
             {
                 ArrayList<Object> list = new80();
                 push(goTo(40), list, false);
             }
             break;
-            case 81: /* reduce ALaco1Comando */
+            case 81: /* reduce ARepitaComando */
             {
                 ArrayList<Object> list = new81();
                 push(goTo(40), list, false);
             }
             break;
-            case 82: /* reduce ALaco2Comando */
+            case 82: /* reduce AParaComando */
             {
                 ArrayList<Object> list = new82();
                 push(goTo(40), list, false);
             }
             break;
-            case 83: /* reduce ALaco3Comando */
+            case 83: /* reduce AEnquantoComando */
             {
                 ArrayList<Object> list = new83();
                 push(goTo(40), list, false);
@@ -708,7 +708,7 @@ public class Parser
                 push(goTo(40), list, false);
             }
             break;
-            case 85: /* reduce ACaseComando */
+            case 85: /* reduce AAvalieComando */
             {
                 ArrayList<Object> list = new85();
                 push(goTo(40), list, false);
@@ -1339,7 +1339,7 @@ public class Parser
 
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    ArrayList<Object> new26() /* reduce AVExp */
+    ArrayList<Object> new26() /* reduce AVarExp */
     {
         @SuppressWarnings("hiding") ArrayList<Object> nodeList = new ArrayList<Object>();
 
@@ -1350,7 +1350,7 @@ public class Parser
         PVariavel pvariavelNode2;
         pvariavelNode2 = (PVariavel)nodeArrayList1.get(0);
 
-        pexpNode1 = new AVExp(pvariavelNode2);
+        pexpNode1 = new AVarExp(pvariavelNode2);
         }
 	nodeList.add(pexpNode1);
         return nodeList;
@@ -1359,7 +1359,7 @@ public class Parser
 
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    ArrayList<Object> new27() /* reduce AMeExp */
+    ArrayList<Object> new27() /* reduce AMenosExp */
     {
         @SuppressWarnings("hiding") ArrayList<Object> nodeList = new ArrayList<Object>();
 
@@ -1373,7 +1373,7 @@ public class Parser
         tmenosNode2 = (TMenos)nodeArrayList1.get(0);
         pexpNode3 = (PExp)nodeArrayList2.get(0);
 
-        pexpNode1 = new AMeExp(tmenosNode2, pexpNode3);
+        pexpNode1 = new AMenosExp(tmenosNode2, pexpNode3);
         }
 	nodeList.add(pexpNode1);
         return nodeList;
@@ -1861,7 +1861,7 @@ public class Parser
 
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    ArrayList<Object> new50() /* reduce AMmmFatorA */
+    ArrayList<Object> new50() /* reduce AMenosFatorA */
     {
         @SuppressWarnings("hiding") ArrayList<Object> nodeList = new ArrayList<Object>();
 
@@ -1875,7 +1875,7 @@ public class Parser
         tmenosNode2 = (TMenos)nodeArrayList1.get(0);
         pfatoraNode3 = (PFatorA)nodeArrayList2.get(0);
 
-        pfatoraNode1 = new AMmmFatorA(tmenosNode2, pfatoraNode3);
+        pfatoraNode1 = new AMenosFatorA(tmenosNode2, pfatoraNode3);
         }
 	nodeList.add(pfatoraNode1);
         return nodeList;
@@ -2690,7 +2690,7 @@ public class Parser
 
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    ArrayList<Object> new79() /* reduce ALerComando */
+    ArrayList<Object> new79() /* reduce ALeiaComando */
     {
         @SuppressWarnings("hiding") ArrayList<Object> nodeList = new ArrayList<Object>();
 
@@ -2704,7 +2704,7 @@ public class Parser
         pleiaestNode2 = (PLeiaEst)nodeArrayList1.get(0);
         pcomandoNode3 = (PComando)nodeArrayList2.get(0);
 
-        pcomandoNode1 = new ALerComando(pleiaestNode2, pcomandoNode3);
+        pcomandoNode1 = new ALeiaComando(pleiaestNode2, pcomandoNode3);
         }
 	nodeList.add(pcomandoNode1);
         return nodeList;
@@ -2713,7 +2713,7 @@ public class Parser
 
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    ArrayList<Object> new80() /* reduce AEscreverComando */
+    ArrayList<Object> new80() /* reduce AEscreveraComando */
     {
         @SuppressWarnings("hiding") ArrayList<Object> nodeList = new ArrayList<Object>();
 
@@ -2727,7 +2727,7 @@ public class Parser
         pescrevaestNode2 = (PEscrevaEst)nodeArrayList1.get(0);
         pcomandoNode3 = (PComando)nodeArrayList2.get(0);
 
-        pcomandoNode1 = new AEscreverComando(pescrevaestNode2, pcomandoNode3);
+        pcomandoNode1 = new AEscreveraComando(pescrevaestNode2, pcomandoNode3);
         }
 	nodeList.add(pcomandoNode1);
         return nodeList;
@@ -2736,7 +2736,7 @@ public class Parser
 
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    ArrayList<Object> new81() /* reduce ALaco1Comando */
+    ArrayList<Object> new81() /* reduce ARepitaComando */
     {
         @SuppressWarnings("hiding") ArrayList<Object> nodeList = new ArrayList<Object>();
 
@@ -2750,7 +2750,7 @@ public class Parser
         prepitaestNode2 = (PRepitaEst)nodeArrayList1.get(0);
         pcomandoNode3 = (PComando)nodeArrayList2.get(0);
 
-        pcomandoNode1 = new ALaco1Comando(prepitaestNode2, pcomandoNode3);
+        pcomandoNode1 = new ARepitaComando(prepitaestNode2, pcomandoNode3);
         }
 	nodeList.add(pcomandoNode1);
         return nodeList;
@@ -2759,7 +2759,7 @@ public class Parser
 
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    ArrayList<Object> new82() /* reduce ALaco2Comando */
+    ArrayList<Object> new82() /* reduce AParaComando */
     {
         @SuppressWarnings("hiding") ArrayList<Object> nodeList = new ArrayList<Object>();
 
@@ -2773,7 +2773,7 @@ public class Parser
         pparaestNode2 = (PParaEst)nodeArrayList1.get(0);
         pcomandoNode3 = (PComando)nodeArrayList2.get(0);
 
-        pcomandoNode1 = new ALaco2Comando(pparaestNode2, pcomandoNode3);
+        pcomandoNode1 = new AParaComando(pparaestNode2, pcomandoNode3);
         }
 	nodeList.add(pcomandoNode1);
         return nodeList;
@@ -2782,7 +2782,7 @@ public class Parser
 
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    ArrayList<Object> new83() /* reduce ALaco3Comando */
+    ArrayList<Object> new83() /* reduce AEnquantoComando */
     {
         @SuppressWarnings("hiding") ArrayList<Object> nodeList = new ArrayList<Object>();
 
@@ -2796,7 +2796,7 @@ public class Parser
         penquantoestNode2 = (PEnquantoEst)nodeArrayList1.get(0);
         pcomandoNode3 = (PComando)nodeArrayList2.get(0);
 
-        pcomandoNode1 = new ALaco3Comando(penquantoestNode2, pcomandoNode3);
+        pcomandoNode1 = new AEnquantoComando(penquantoestNode2, pcomandoNode3);
         }
 	nodeList.add(pcomandoNode1);
         return nodeList;
@@ -2828,7 +2828,7 @@ public class Parser
 
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    ArrayList<Object> new85() /* reduce ACaseComando */
+    ArrayList<Object> new85() /* reduce AAvalieComando */
     {
         @SuppressWarnings("hiding") ArrayList<Object> nodeList = new ArrayList<Object>();
 
@@ -2842,7 +2842,7 @@ public class Parser
         pavalieestNode2 = (PAvalieEst)nodeArrayList1.get(0);
         pcomandoNode3 = (PComando)nodeArrayList2.get(0);
 
-        pcomandoNode1 = new ACaseComando(pavalieestNode2, pcomandoNode3);
+        pcomandoNode1 = new AAvalieComando(pavalieestNode2, pcomandoNode3);
         }
 	nodeList.add(pcomandoNode1);
         return nodeList;

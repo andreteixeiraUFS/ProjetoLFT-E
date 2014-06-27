@@ -1,8 +1,5 @@
 package projetolft;
 
-
-
-import java.time.Clock;
 import projetolft.lexer.Lexer;
 import projetolft.lexer.LexerException;
 import projetolft.node.*;
