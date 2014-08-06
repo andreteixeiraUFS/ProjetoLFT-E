@@ -7,9 +7,7 @@ import projetolft.analysis.*;
 @SuppressWarnings("nls")
 public final class AForPassoParaEst extends PParaEst
 {
-    private TPara _para_;
     private PVariavel _variavel_;
-    private TDe _de_;
     private TNumeroInt _numeroInt_;
     private PFor2 _for2_;
 
@@ -19,18 +17,12 @@ public final class AForPassoParaEst extends PParaEst
     }
 
     public AForPassoParaEst(
-        @SuppressWarnings("hiding") TPara _para_,
         @SuppressWarnings("hiding") PVariavel _variavel_,
-        @SuppressWarnings("hiding") TDe _de_,
         @SuppressWarnings("hiding") TNumeroInt _numeroInt_,
         @SuppressWarnings("hiding") PFor2 _for2_)
     {
         // Constructor
-        setPara(_para_);
-
         setVariavel(_variavel_);
-
-        setDe(_de_);
 
         setNumeroInt(_numeroInt_);
 
@@ -42,9 +34,7 @@ public final class AForPassoParaEst extends PParaEst
     public Object clone()
     {
         return new AForPassoParaEst(
-            cloneNode(this._para_),
             cloneNode(this._variavel_),
-            cloneNode(this._de_),
             cloneNode(this._numeroInt_),
             cloneNode(this._for2_));
     }
@@ -53,31 +43,6 @@ public final class AForPassoParaEst extends PParaEst
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseAForPassoParaEst(this);
-    }
-
-    public TPara getPara()
-    {
-        return this._para_;
-    }
-
-    public void setPara(TPara node)
-    {
-        if(this._para_ != null)
-        {
-            this._para_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._para_ = node;
     }
 
     public PVariavel getVariavel()
@@ -103,31 +68,6 @@ public final class AForPassoParaEst extends PParaEst
         }
 
         this._variavel_ = node;
-    }
-
-    public TDe getDe()
-    {
-        return this._de_;
-    }
-
-    public void setDe(TDe node)
-    {
-        if(this._de_ != null)
-        {
-            this._de_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._de_ = node;
     }
 
     public TNumeroInt getNumeroInt()
@@ -184,9 +124,7 @@ public final class AForPassoParaEst extends PParaEst
     public String toString()
     {
         return ""
-            + toString(this._para_)
             + toString(this._variavel_)
-            + toString(this._de_)
             + toString(this._numeroInt_)
             + toString(this._for2_);
     }
@@ -195,21 +133,9 @@ public final class AForPassoParaEst extends PParaEst
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._para_ == child)
-        {
-            this._para_ = null;
-            return;
-        }
-
         if(this._variavel_ == child)
         {
             this._variavel_ = null;
-            return;
-        }
-
-        if(this._de_ == child)
-        {
-            this._de_ = null;
             return;
         }
 
@@ -232,21 +158,9 @@ public final class AForPassoParaEst extends PParaEst
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._para_ == oldChild)
-        {
-            setPara((TPara) newChild);
-            return;
-        }
-
         if(this._variavel_ == oldChild)
         {
             setVariavel((PVariavel) newChild);
-            return;
-        }
-
-        if(this._de_ == oldChild)
-        {
-            setDe((TDe) newChild);
             return;
         }
 

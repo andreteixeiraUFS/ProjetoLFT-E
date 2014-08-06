@@ -7,11 +7,7 @@ import projetolft.analysis.*;
 @SuppressWarnings("nls")
 public final class ALeiaEst extends PLeiaEst
 {
-    private TLeia _leia_;
-    private TParenEsq _parenEsq_;
     private PLeiaM _leiaM_;
-    private TParenDir _parenDir_;
-    private TPontoVirgula _pontoVirgula_;
 
     public ALeiaEst()
     {
@@ -19,22 +15,10 @@ public final class ALeiaEst extends PLeiaEst
     }
 
     public ALeiaEst(
-        @SuppressWarnings("hiding") TLeia _leia_,
-        @SuppressWarnings("hiding") TParenEsq _parenEsq_,
-        @SuppressWarnings("hiding") PLeiaM _leiaM_,
-        @SuppressWarnings("hiding") TParenDir _parenDir_,
-        @SuppressWarnings("hiding") TPontoVirgula _pontoVirgula_)
+        @SuppressWarnings("hiding") PLeiaM _leiaM_)
     {
         // Constructor
-        setLeia(_leia_);
-
-        setParenEsq(_parenEsq_);
-
         setLeiaM(_leiaM_);
-
-        setParenDir(_parenDir_);
-
-        setPontoVirgula(_pontoVirgula_);
 
     }
 
@@ -42,67 +26,13 @@ public final class ALeiaEst extends PLeiaEst
     public Object clone()
     {
         return new ALeiaEst(
-            cloneNode(this._leia_),
-            cloneNode(this._parenEsq_),
-            cloneNode(this._leiaM_),
-            cloneNode(this._parenDir_),
-            cloneNode(this._pontoVirgula_));
+            cloneNode(this._leiaM_));
     }
 
     @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseALeiaEst(this);
-    }
-
-    public TLeia getLeia()
-    {
-        return this._leia_;
-    }
-
-    public void setLeia(TLeia node)
-    {
-        if(this._leia_ != null)
-        {
-            this._leia_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._leia_ = node;
-    }
-
-    public TParenEsq getParenEsq()
-    {
-        return this._parenEsq_;
-    }
-
-    public void setParenEsq(TParenEsq node)
-    {
-        if(this._parenEsq_ != null)
-        {
-            this._parenEsq_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._parenEsq_ = node;
     }
 
     public PLeiaM getLeiaM()
@@ -130,98 +60,20 @@ public final class ALeiaEst extends PLeiaEst
         this._leiaM_ = node;
     }
 
-    public TParenDir getParenDir()
-    {
-        return this._parenDir_;
-    }
-
-    public void setParenDir(TParenDir node)
-    {
-        if(this._parenDir_ != null)
-        {
-            this._parenDir_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._parenDir_ = node;
-    }
-
-    public TPontoVirgula getPontoVirgula()
-    {
-        return this._pontoVirgula_;
-    }
-
-    public void setPontoVirgula(TPontoVirgula node)
-    {
-        if(this._pontoVirgula_ != null)
-        {
-            this._pontoVirgula_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._pontoVirgula_ = node;
-    }
-
     @Override
     public String toString()
     {
         return ""
-            + toString(this._leia_)
-            + toString(this._parenEsq_)
-            + toString(this._leiaM_)
-            + toString(this._parenDir_)
-            + toString(this._pontoVirgula_);
+            + toString(this._leiaM_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._leia_ == child)
-        {
-            this._leia_ = null;
-            return;
-        }
-
-        if(this._parenEsq_ == child)
-        {
-            this._parenEsq_ = null;
-            return;
-        }
-
         if(this._leiaM_ == child)
         {
             this._leiaM_ = null;
-            return;
-        }
-
-        if(this._parenDir_ == child)
-        {
-            this._parenDir_ = null;
-            return;
-        }
-
-        if(this._pontoVirgula_ == child)
-        {
-            this._pontoVirgula_ = null;
             return;
         }
 
@@ -232,33 +84,9 @@ public final class ALeiaEst extends PLeiaEst
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._leia_ == oldChild)
-        {
-            setLeia((TLeia) newChild);
-            return;
-        }
-
-        if(this._parenEsq_ == oldChild)
-        {
-            setParenEsq((TParenEsq) newChild);
-            return;
-        }
-
         if(this._leiaM_ == oldChild)
         {
             setLeiaM((PLeiaM) newChild);
-            return;
-        }
-
-        if(this._parenDir_ == oldChild)
-        {
-            setParenDir((TParenDir) newChild);
-            return;
-        }
-
-        if(this._pontoVirgula_ == oldChild)
-        {
-            setPontoVirgula((TPontoVirgula) newChild);
             return;
         }
 

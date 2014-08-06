@@ -7,11 +7,7 @@ import projetolft.analysis.*;
 @SuppressWarnings("nls")
 public final class AEscrevaEst extends PEscrevaEst
 {
-    private TEscreva _escreva_;
-    private TParenEsq _parenEsq_;
     private PEscrevaM _escrevaM_;
-    private TParenDir _parenDir_;
-    private TPontoVirgula _pontoVirgula_;
 
     public AEscrevaEst()
     {
@@ -19,22 +15,10 @@ public final class AEscrevaEst extends PEscrevaEst
     }
 
     public AEscrevaEst(
-        @SuppressWarnings("hiding") TEscreva _escreva_,
-        @SuppressWarnings("hiding") TParenEsq _parenEsq_,
-        @SuppressWarnings("hiding") PEscrevaM _escrevaM_,
-        @SuppressWarnings("hiding") TParenDir _parenDir_,
-        @SuppressWarnings("hiding") TPontoVirgula _pontoVirgula_)
+        @SuppressWarnings("hiding") PEscrevaM _escrevaM_)
     {
         // Constructor
-        setEscreva(_escreva_);
-
-        setParenEsq(_parenEsq_);
-
         setEscrevaM(_escrevaM_);
-
-        setParenDir(_parenDir_);
-
-        setPontoVirgula(_pontoVirgula_);
 
     }
 
@@ -42,67 +26,13 @@ public final class AEscrevaEst extends PEscrevaEst
     public Object clone()
     {
         return new AEscrevaEst(
-            cloneNode(this._escreva_),
-            cloneNode(this._parenEsq_),
-            cloneNode(this._escrevaM_),
-            cloneNode(this._parenDir_),
-            cloneNode(this._pontoVirgula_));
+            cloneNode(this._escrevaM_));
     }
 
     @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseAEscrevaEst(this);
-    }
-
-    public TEscreva getEscreva()
-    {
-        return this._escreva_;
-    }
-
-    public void setEscreva(TEscreva node)
-    {
-        if(this._escreva_ != null)
-        {
-            this._escreva_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._escreva_ = node;
-    }
-
-    public TParenEsq getParenEsq()
-    {
-        return this._parenEsq_;
-    }
-
-    public void setParenEsq(TParenEsq node)
-    {
-        if(this._parenEsq_ != null)
-        {
-            this._parenEsq_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._parenEsq_ = node;
     }
 
     public PEscrevaM getEscrevaM()
@@ -130,98 +60,20 @@ public final class AEscrevaEst extends PEscrevaEst
         this._escrevaM_ = node;
     }
 
-    public TParenDir getParenDir()
-    {
-        return this._parenDir_;
-    }
-
-    public void setParenDir(TParenDir node)
-    {
-        if(this._parenDir_ != null)
-        {
-            this._parenDir_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._parenDir_ = node;
-    }
-
-    public TPontoVirgula getPontoVirgula()
-    {
-        return this._pontoVirgula_;
-    }
-
-    public void setPontoVirgula(TPontoVirgula node)
-    {
-        if(this._pontoVirgula_ != null)
-        {
-            this._pontoVirgula_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._pontoVirgula_ = node;
-    }
-
     @Override
     public String toString()
     {
         return ""
-            + toString(this._escreva_)
-            + toString(this._parenEsq_)
-            + toString(this._escrevaM_)
-            + toString(this._parenDir_)
-            + toString(this._pontoVirgula_);
+            + toString(this._escrevaM_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._escreva_ == child)
-        {
-            this._escreva_ = null;
-            return;
-        }
-
-        if(this._parenEsq_ == child)
-        {
-            this._parenEsq_ = null;
-            return;
-        }
-
         if(this._escrevaM_ == child)
         {
             this._escrevaM_ = null;
-            return;
-        }
-
-        if(this._parenDir_ == child)
-        {
-            this._parenDir_ = null;
-            return;
-        }
-
-        if(this._pontoVirgula_ == child)
-        {
-            this._pontoVirgula_ = null;
             return;
         }
 
@@ -232,33 +84,9 @@ public final class AEscrevaEst extends PEscrevaEst
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._escreva_ == oldChild)
-        {
-            setEscreva((TEscreva) newChild);
-            return;
-        }
-
-        if(this._parenEsq_ == oldChild)
-        {
-            setParenEsq((TParenEsq) newChild);
-            return;
-        }
-
         if(this._escrevaM_ == oldChild)
         {
             setEscrevaM((PEscrevaM) newChild);
-            return;
-        }
-
-        if(this._parenDir_ == oldChild)
-        {
-            setParenDir((TParenDir) newChild);
-            return;
-        }
-
-        if(this._pontoVirgula_ == oldChild)
-        {
-            setPontoVirgula((TPontoVirgula) newChild);
             return;
         }
 

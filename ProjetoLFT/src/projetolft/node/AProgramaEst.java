@@ -7,12 +7,10 @@ import projetolft.analysis.*;
 @SuppressWarnings("nls")
 public final class AProgramaEst extends PProgramaEst
 {
-    private TPrograma _programa_;
     private TIdentificador _identificador_;
     private TInicio _inicio_;
     private PDeclaracao _declaracao_;
     private PComando _comando_;
-    private TFimP _fimP_;
 
     public AProgramaEst()
     {
@@ -20,16 +18,12 @@ public final class AProgramaEst extends PProgramaEst
     }
 
     public AProgramaEst(
-        @SuppressWarnings("hiding") TPrograma _programa_,
         @SuppressWarnings("hiding") TIdentificador _identificador_,
         @SuppressWarnings("hiding") TInicio _inicio_,
         @SuppressWarnings("hiding") PDeclaracao _declaracao_,
-        @SuppressWarnings("hiding") PComando _comando_,
-        @SuppressWarnings("hiding") TFimP _fimP_)
+        @SuppressWarnings("hiding") PComando _comando_)
     {
         // Constructor
-        setPrograma(_programa_);
-
         setIdentificador(_identificador_);
 
         setInicio(_inicio_);
@@ -38,51 +32,22 @@ public final class AProgramaEst extends PProgramaEst
 
         setComando(_comando_);
 
-        setFimP(_fimP_);
-
     }
 
     @Override
     public Object clone()
     {
         return new AProgramaEst(
-            cloneNode(this._programa_),
             cloneNode(this._identificador_),
             cloneNode(this._inicio_),
             cloneNode(this._declaracao_),
-            cloneNode(this._comando_),
-            cloneNode(this._fimP_));
+            cloneNode(this._comando_));
     }
 
     @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseAProgramaEst(this);
-    }
-
-    public TPrograma getPrograma()
-    {
-        return this._programa_;
-    }
-
-    public void setPrograma(TPrograma node)
-    {
-        if(this._programa_ != null)
-        {
-            this._programa_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._programa_ = node;
     }
 
     public TIdentificador getIdentificador()
@@ -185,53 +150,20 @@ public final class AProgramaEst extends PProgramaEst
         this._comando_ = node;
     }
 
-    public TFimP getFimP()
-    {
-        return this._fimP_;
-    }
-
-    public void setFimP(TFimP node)
-    {
-        if(this._fimP_ != null)
-        {
-            this._fimP_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._fimP_ = node;
-    }
-
     @Override
     public String toString()
     {
         return ""
-            + toString(this._programa_)
             + toString(this._identificador_)
             + toString(this._inicio_)
             + toString(this._declaracao_)
-            + toString(this._comando_)
-            + toString(this._fimP_);
+            + toString(this._comando_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._programa_ == child)
-        {
-            this._programa_ = null;
-            return;
-        }
-
         if(this._identificador_ == child)
         {
             this._identificador_ = null;
@@ -256,12 +188,6 @@ public final class AProgramaEst extends PProgramaEst
             return;
         }
 
-        if(this._fimP_ == child)
-        {
-            this._fimP_ = null;
-            return;
-        }
-
         throw new RuntimeException("Not a child.");
     }
 
@@ -269,12 +195,6 @@ public final class AProgramaEst extends PProgramaEst
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._programa_ == oldChild)
-        {
-            setPrograma((TPrograma) newChild);
-            return;
-        }
-
         if(this._identificador_ == oldChild)
         {
             setIdentificador((TIdentificador) newChild);
@@ -296,12 +216,6 @@ public final class AProgramaEst extends PProgramaEst
         if(this._comando_ == oldChild)
         {
             setComando((PComando) newChild);
-            return;
-        }
-
-        if(this._fimP_ == oldChild)
-        {
-            setFimP((TFimP) newChild);
             return;
         }
 

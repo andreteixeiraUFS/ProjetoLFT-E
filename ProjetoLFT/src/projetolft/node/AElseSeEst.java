@@ -7,11 +7,7 @@ import projetolft.analysis.*;
 @SuppressWarnings("nls")
 public final class AElseSeEst extends PSeEst
 {
-    private TSe _se_;
-    private TParenEsq _parenEsq_;
     private PExplogica _explogica_;
-    private TParenDir _parenDir_;
-    private TEntao _entao_;
     private PComando _comando_;
     private PSeSen _seSen_;
 
@@ -21,24 +17,12 @@ public final class AElseSeEst extends PSeEst
     }
 
     public AElseSeEst(
-        @SuppressWarnings("hiding") TSe _se_,
-        @SuppressWarnings("hiding") TParenEsq _parenEsq_,
         @SuppressWarnings("hiding") PExplogica _explogica_,
-        @SuppressWarnings("hiding") TParenDir _parenDir_,
-        @SuppressWarnings("hiding") TEntao _entao_,
         @SuppressWarnings("hiding") PComando _comando_,
         @SuppressWarnings("hiding") PSeSen _seSen_)
     {
         // Constructor
-        setSe(_se_);
-
-        setParenEsq(_parenEsq_);
-
         setExplogica(_explogica_);
-
-        setParenDir(_parenDir_);
-
-        setEntao(_entao_);
 
         setComando(_comando_);
 
@@ -50,11 +34,7 @@ public final class AElseSeEst extends PSeEst
     public Object clone()
     {
         return new AElseSeEst(
-            cloneNode(this._se_),
-            cloneNode(this._parenEsq_),
             cloneNode(this._explogica_),
-            cloneNode(this._parenDir_),
-            cloneNode(this._entao_),
             cloneNode(this._comando_),
             cloneNode(this._seSen_));
     }
@@ -63,56 +43,6 @@ public final class AElseSeEst extends PSeEst
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseAElseSeEst(this);
-    }
-
-    public TSe getSe()
-    {
-        return this._se_;
-    }
-
-    public void setSe(TSe node)
-    {
-        if(this._se_ != null)
-        {
-            this._se_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._se_ = node;
-    }
-
-    public TParenEsq getParenEsq()
-    {
-        return this._parenEsq_;
-    }
-
-    public void setParenEsq(TParenEsq node)
-    {
-        if(this._parenEsq_ != null)
-        {
-            this._parenEsq_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._parenEsq_ = node;
     }
 
     public PExplogica getExplogica()
@@ -138,56 +68,6 @@ public final class AElseSeEst extends PSeEst
         }
 
         this._explogica_ = node;
-    }
-
-    public TParenDir getParenDir()
-    {
-        return this._parenDir_;
-    }
-
-    public void setParenDir(TParenDir node)
-    {
-        if(this._parenDir_ != null)
-        {
-            this._parenDir_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._parenDir_ = node;
-    }
-
-    public TEntao getEntao()
-    {
-        return this._entao_;
-    }
-
-    public void setEntao(TEntao node)
-    {
-        if(this._entao_ != null)
-        {
-            this._entao_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._entao_ = node;
     }
 
     public PComando getComando()
@@ -244,11 +124,7 @@ public final class AElseSeEst extends PSeEst
     public String toString()
     {
         return ""
-            + toString(this._se_)
-            + toString(this._parenEsq_)
             + toString(this._explogica_)
-            + toString(this._parenDir_)
-            + toString(this._entao_)
             + toString(this._comando_)
             + toString(this._seSen_);
     }
@@ -257,33 +133,9 @@ public final class AElseSeEst extends PSeEst
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._se_ == child)
-        {
-            this._se_ = null;
-            return;
-        }
-
-        if(this._parenEsq_ == child)
-        {
-            this._parenEsq_ = null;
-            return;
-        }
-
         if(this._explogica_ == child)
         {
             this._explogica_ = null;
-            return;
-        }
-
-        if(this._parenDir_ == child)
-        {
-            this._parenDir_ = null;
-            return;
-        }
-
-        if(this._entao_ == child)
-        {
-            this._entao_ = null;
             return;
         }
 
@@ -306,33 +158,9 @@ public final class AElseSeEst extends PSeEst
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._se_ == oldChild)
-        {
-            setSe((TSe) newChild);
-            return;
-        }
-
-        if(this._parenEsq_ == oldChild)
-        {
-            setParenEsq((TParenEsq) newChild);
-            return;
-        }
-
         if(this._explogica_ == oldChild)
         {
             setExplogica((PExplogica) newChild);
-            return;
-        }
-
-        if(this._parenDir_ == oldChild)
-        {
-            setParenDir((TParenDir) newChild);
-            return;
-        }
-
-        if(this._entao_ == oldChild)
-        {
-            setEntao((TEntao) newChild);
             return;
         }
 

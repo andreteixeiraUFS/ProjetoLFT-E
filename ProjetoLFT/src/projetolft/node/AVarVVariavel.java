@@ -8,9 +8,7 @@ import projetolft.analysis.*;
 public final class AVarVVariavel extends PVariavel
 {
     private TIdentificador _identificador_;
-    private TColcheteEsq _colcheteEsq_;
     private TNumeroInt _numeroInt_;
-    private TColcheteDir _colcheteDir_;
 
     public AVarVVariavel()
     {
@@ -19,18 +17,12 @@ public final class AVarVVariavel extends PVariavel
 
     public AVarVVariavel(
         @SuppressWarnings("hiding") TIdentificador _identificador_,
-        @SuppressWarnings("hiding") TColcheteEsq _colcheteEsq_,
-        @SuppressWarnings("hiding") TNumeroInt _numeroInt_,
-        @SuppressWarnings("hiding") TColcheteDir _colcheteDir_)
+        @SuppressWarnings("hiding") TNumeroInt _numeroInt_)
     {
         // Constructor
         setIdentificador(_identificador_);
 
-        setColcheteEsq(_colcheteEsq_);
-
         setNumeroInt(_numeroInt_);
-
-        setColcheteDir(_colcheteDir_);
 
     }
 
@@ -39,9 +31,7 @@ public final class AVarVVariavel extends PVariavel
     {
         return new AVarVVariavel(
             cloneNode(this._identificador_),
-            cloneNode(this._colcheteEsq_),
-            cloneNode(this._numeroInt_),
-            cloneNode(this._colcheteDir_));
+            cloneNode(this._numeroInt_));
     }
 
     @Override
@@ -75,31 +65,6 @@ public final class AVarVVariavel extends PVariavel
         this._identificador_ = node;
     }
 
-    public TColcheteEsq getColcheteEsq()
-    {
-        return this._colcheteEsq_;
-    }
-
-    public void setColcheteEsq(TColcheteEsq node)
-    {
-        if(this._colcheteEsq_ != null)
-        {
-            this._colcheteEsq_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._colcheteEsq_ = node;
-    }
-
     public TNumeroInt getNumeroInt()
     {
         return this._numeroInt_;
@@ -125,39 +90,12 @@ public final class AVarVVariavel extends PVariavel
         this._numeroInt_ = node;
     }
 
-    public TColcheteDir getColcheteDir()
-    {
-        return this._colcheteDir_;
-    }
-
-    public void setColcheteDir(TColcheteDir node)
-    {
-        if(this._colcheteDir_ != null)
-        {
-            this._colcheteDir_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._colcheteDir_ = node;
-    }
-
     @Override
     public String toString()
     {
         return ""
             + toString(this._identificador_)
-            + toString(this._colcheteEsq_)
-            + toString(this._numeroInt_)
-            + toString(this._colcheteDir_);
+            + toString(this._numeroInt_);
     }
 
     @Override
@@ -170,21 +108,9 @@ public final class AVarVVariavel extends PVariavel
             return;
         }
 
-        if(this._colcheteEsq_ == child)
-        {
-            this._colcheteEsq_ = null;
-            return;
-        }
-
         if(this._numeroInt_ == child)
         {
             this._numeroInt_ = null;
-            return;
-        }
-
-        if(this._colcheteDir_ == child)
-        {
-            this._colcheteDir_ = null;
             return;
         }
 
@@ -201,21 +127,9 @@ public final class AVarVVariavel extends PVariavel
             return;
         }
 
-        if(this._colcheteEsq_ == oldChild)
-        {
-            setColcheteEsq((TColcheteEsq) newChild);
-            return;
-        }
-
         if(this._numeroInt_ == oldChild)
         {
             setNumeroInt((TNumeroInt) newChild);
-            return;
-        }
-
-        if(this._colcheteDir_ == oldChild)
-        {
-            setColcheteDir((TColcheteDir) newChild);
             return;
         }
 

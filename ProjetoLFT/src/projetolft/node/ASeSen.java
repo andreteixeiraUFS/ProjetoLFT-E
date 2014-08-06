@@ -7,10 +7,7 @@ import projetolft.analysis.*;
 @SuppressWarnings("nls")
 public final class ASeSen extends PSeSen
 {
-    private TSenao _senao_;
     private PComando _comando_;
-    private TFimSe _fimSe_;
-    private TPontoVirgula _pontoVirgula_;
 
     public ASeSen()
     {
@@ -18,19 +15,10 @@ public final class ASeSen extends PSeSen
     }
 
     public ASeSen(
-        @SuppressWarnings("hiding") TSenao _senao_,
-        @SuppressWarnings("hiding") PComando _comando_,
-        @SuppressWarnings("hiding") TFimSe _fimSe_,
-        @SuppressWarnings("hiding") TPontoVirgula _pontoVirgula_)
+        @SuppressWarnings("hiding") PComando _comando_)
     {
         // Constructor
-        setSenao(_senao_);
-
         setComando(_comando_);
-
-        setFimSe(_fimSe_);
-
-        setPontoVirgula(_pontoVirgula_);
 
     }
 
@@ -38,41 +26,13 @@ public final class ASeSen extends PSeSen
     public Object clone()
     {
         return new ASeSen(
-            cloneNode(this._senao_),
-            cloneNode(this._comando_),
-            cloneNode(this._fimSe_),
-            cloneNode(this._pontoVirgula_));
+            cloneNode(this._comando_));
     }
 
     @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseASeSen(this);
-    }
-
-    public TSenao getSenao()
-    {
-        return this._senao_;
-    }
-
-    public void setSenao(TSenao node)
-    {
-        if(this._senao_ != null)
-        {
-            this._senao_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._senao_ = node;
     }
 
     public PComando getComando()
@@ -100,91 +60,20 @@ public final class ASeSen extends PSeSen
         this._comando_ = node;
     }
 
-    public TFimSe getFimSe()
-    {
-        return this._fimSe_;
-    }
-
-    public void setFimSe(TFimSe node)
-    {
-        if(this._fimSe_ != null)
-        {
-            this._fimSe_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._fimSe_ = node;
-    }
-
-    public TPontoVirgula getPontoVirgula()
-    {
-        return this._pontoVirgula_;
-    }
-
-    public void setPontoVirgula(TPontoVirgula node)
-    {
-        if(this._pontoVirgula_ != null)
-        {
-            this._pontoVirgula_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._pontoVirgula_ = node;
-    }
-
     @Override
     public String toString()
     {
         return ""
-            + toString(this._senao_)
-            + toString(this._comando_)
-            + toString(this._fimSe_)
-            + toString(this._pontoVirgula_);
+            + toString(this._comando_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._senao_ == child)
-        {
-            this._senao_ = null;
-            return;
-        }
-
         if(this._comando_ == child)
         {
             this._comando_ = null;
-            return;
-        }
-
-        if(this._fimSe_ == child)
-        {
-            this._fimSe_ = null;
-            return;
-        }
-
-        if(this._pontoVirgula_ == child)
-        {
-            this._pontoVirgula_ = null;
             return;
         }
 
@@ -195,27 +84,9 @@ public final class ASeSen extends PSeSen
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._senao_ == oldChild)
-        {
-            setSenao((TSenao) newChild);
-            return;
-        }
-
         if(this._comando_ == oldChild)
         {
             setComando((PComando) newChild);
-            return;
-        }
-
-        if(this._fimSe_ == oldChild)
-        {
-            setFimSe((TFimSe) newChild);
-            return;
-        }
-
-        if(this._pontoVirgula_ == oldChild)
-        {
-            setPontoVirgula((TPontoVirgula) newChild);
             return;
         }
 

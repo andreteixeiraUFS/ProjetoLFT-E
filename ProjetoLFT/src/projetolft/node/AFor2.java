@@ -7,7 +7,6 @@ import projetolft.analysis.*;
 @SuppressWarnings("nls")
 public final class AFor2 extends PFor2
 {
-    private TPasso _passo_;
     private TNumeroInt _numeroInt_;
     private PFor1 _for1_;
 
@@ -17,13 +16,10 @@ public final class AFor2 extends PFor2
     }
 
     public AFor2(
-        @SuppressWarnings("hiding") TPasso _passo_,
         @SuppressWarnings("hiding") TNumeroInt _numeroInt_,
         @SuppressWarnings("hiding") PFor1 _for1_)
     {
         // Constructor
-        setPasso(_passo_);
-
         setNumeroInt(_numeroInt_);
 
         setFor1(_for1_);
@@ -34,7 +30,6 @@ public final class AFor2 extends PFor2
     public Object clone()
     {
         return new AFor2(
-            cloneNode(this._passo_),
             cloneNode(this._numeroInt_),
             cloneNode(this._for1_));
     }
@@ -43,31 +38,6 @@ public final class AFor2 extends PFor2
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseAFor2(this);
-    }
-
-    public TPasso getPasso()
-    {
-        return this._passo_;
-    }
-
-    public void setPasso(TPasso node)
-    {
-        if(this._passo_ != null)
-        {
-            this._passo_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._passo_ = node;
     }
 
     public TNumeroInt getNumeroInt()
@@ -124,7 +94,6 @@ public final class AFor2 extends PFor2
     public String toString()
     {
         return ""
-            + toString(this._passo_)
             + toString(this._numeroInt_)
             + toString(this._for1_);
     }
@@ -133,12 +102,6 @@ public final class AFor2 extends PFor2
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._passo_ == child)
-        {
-            this._passo_ = null;
-            return;
-        }
-
         if(this._numeroInt_ == child)
         {
             this._numeroInt_ = null;
@@ -158,12 +121,6 @@ public final class AFor2 extends PFor2
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._passo_ == oldChild)
-        {
-            setPasso((TPasso) newChild);
-            return;
-        }
-
         if(this._numeroInt_ == oldChild)
         {
             setNumeroInt((TNumeroInt) newChild);

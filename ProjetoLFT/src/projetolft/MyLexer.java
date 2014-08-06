@@ -6,45 +6,45 @@ import projetolft.node.*;
 
 public class MyLexer extends Lexer {
 
-    private int count;
-    public TComentadoA comment;
-    private StringBuffer text;
+	private int count;
+	public TComentadoA comment;
+	private StringBuffer text;
 
-    public MyLexer(java.io.PushbackReader in) {
+	public MyLexer(java.io.PushbackReader in) {
 
-        super(in);
-    }
+		super(in);
+	}
 
-    public void filter() throws LexerException {
-        if (state.equals(State.COMENTADO)) {
-            if (comment == null) {
-                comment = (TComentadoA) token;
-                text = new StringBuffer(comment.getText());
-                count = 1;
-                token = null;
-            } else {
-                text.append(token.getText());
-                if (token instanceof TComentadoA) {
-                    count++;
-                } else if (token instanceof TComentadoFinal) {
-                    count--;
-                }
-                if (token instanceof EOF) {
-                    throw new LexerException(null, "token coment�rio desbalanceado");
-                }
-                if (count != 0) {
-                    token = null;
-                } else {
-                    //Final de um aninhamento
-                   //text.toString();
-                    //comment.setText(text.toString());
-                    token = comment;
-                  
-                    state = State.NORMAL;
-                    comment = null;
-                     // System.out.println(text.toString());
-                }
-            }
-        }
-    }
+	public void filter() throws LexerException {
+		if (state.equals(State.COMENTADO)) {
+			if (comment == null) {
+				comment = (TComentadoA) token;
+				text = new StringBuffer(comment.getText());
+				count = 1;
+				token = null;
+			} else {
+				text.append(token.getText());
+				if (token instanceof TComentadoA) {
+					count++;
+				} else if (token instanceof TComentadoFinal) {
+					count--;
+				}
+				if (token instanceof EOF) {
+					throw new LexerException(null,
+							"token coment�rio desbalanceado");
+				}
+				if (count != 0) {
+					token = null;
+				} else {
+					// Final de um aninhamento
+
+					token = comment;
+
+					state = State.NORMAL;
+					comment = null;
+					// System.out.println(text.toString());
+				}
+			}
+		}
+	}
 }

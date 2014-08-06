@@ -7,9 +7,7 @@ import projetolft.analysis.*;
 @SuppressWarnings("nls")
 public final class AExpressaoFatorA extends PFatorA
 {
-    private TParenEsq _parenEsq_;
-    private PExplogica _explogica_;
-    private TParenDir _parenDir_;
+    private PExp _exp_;
 
     public AExpressaoFatorA()
     {
@@ -17,16 +15,10 @@ public final class AExpressaoFatorA extends PFatorA
     }
 
     public AExpressaoFatorA(
-        @SuppressWarnings("hiding") TParenEsq _parenEsq_,
-        @SuppressWarnings("hiding") PExplogica _explogica_,
-        @SuppressWarnings("hiding") TParenDir _parenDir_)
+        @SuppressWarnings("hiding") PExp _exp_)
     {
         // Constructor
-        setParenEsq(_parenEsq_);
-
-        setExplogica(_explogica_);
-
-        setParenDir(_parenDir_);
+        setExp(_exp_);
 
     }
 
@@ -34,9 +26,7 @@ public final class AExpressaoFatorA extends PFatorA
     public Object clone()
     {
         return new AExpressaoFatorA(
-            cloneNode(this._parenEsq_),
-            cloneNode(this._explogica_),
-            cloneNode(this._parenDir_));
+            cloneNode(this._exp_));
     }
 
     @Override
@@ -45,16 +35,16 @@ public final class AExpressaoFatorA extends PFatorA
         ((Analysis) sw).caseAExpressaoFatorA(this);
     }
 
-    public TParenEsq getParenEsq()
+    public PExp getExp()
     {
-        return this._parenEsq_;
+        return this._exp_;
     }
 
-    public void setParenEsq(TParenEsq node)
+    public void setExp(PExp node)
     {
-        if(this._parenEsq_ != null)
+        if(this._exp_ != null)
         {
-            this._parenEsq_.parent(null);
+            this._exp_.parent(null);
         }
 
         if(node != null)
@@ -67,87 +57,23 @@ public final class AExpressaoFatorA extends PFatorA
             node.parent(this);
         }
 
-        this._parenEsq_ = node;
-    }
-
-    public PExplogica getExplogica()
-    {
-        return this._explogica_;
-    }
-
-    public void setExplogica(PExplogica node)
-    {
-        if(this._explogica_ != null)
-        {
-            this._explogica_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._explogica_ = node;
-    }
-
-    public TParenDir getParenDir()
-    {
-        return this._parenDir_;
-    }
-
-    public void setParenDir(TParenDir node)
-    {
-        if(this._parenDir_ != null)
-        {
-            this._parenDir_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._parenDir_ = node;
+        this._exp_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._parenEsq_)
-            + toString(this._explogica_)
-            + toString(this._parenDir_);
+            + toString(this._exp_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._parenEsq_ == child)
+        if(this._exp_ == child)
         {
-            this._parenEsq_ = null;
-            return;
-        }
-
-        if(this._explogica_ == child)
-        {
-            this._explogica_ = null;
-            return;
-        }
-
-        if(this._parenDir_ == child)
-        {
-            this._parenDir_ = null;
+            this._exp_ = null;
             return;
         }
 
@@ -158,21 +84,9 @@ public final class AExpressaoFatorA extends PFatorA
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._parenEsq_ == oldChild)
+        if(this._exp_ == oldChild)
         {
-            setParenEsq((TParenEsq) newChild);
-            return;
-        }
-
-        if(this._explogica_ == oldChild)
-        {
-            setExplogica((PExplogica) newChild);
-            return;
-        }
-
-        if(this._parenDir_ == oldChild)
-        {
-            setParenDir((TParenDir) newChild);
+            setExp((PExp) newChild);
             return;
         }
 

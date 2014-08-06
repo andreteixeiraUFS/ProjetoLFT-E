@@ -8,9 +8,7 @@ import projetolft.analysis.*;
 public final class ACasoCasoM extends PCasoM
 {
     private PCasoM _casoM_;
-    private TCaso _caso_;
     private PValor _valor_;
-    private TDoisPontos _doisPontos_;
     private PComando _comando_;
 
     public ACasoCasoM()
@@ -20,19 +18,13 @@ public final class ACasoCasoM extends PCasoM
 
     public ACasoCasoM(
         @SuppressWarnings("hiding") PCasoM _casoM_,
-        @SuppressWarnings("hiding") TCaso _caso_,
         @SuppressWarnings("hiding") PValor _valor_,
-        @SuppressWarnings("hiding") TDoisPontos _doisPontos_,
         @SuppressWarnings("hiding") PComando _comando_)
     {
         // Constructor
         setCasoM(_casoM_);
 
-        setCaso(_caso_);
-
         setValor(_valor_);
-
-        setDoisPontos(_doisPontos_);
 
         setComando(_comando_);
 
@@ -43,9 +35,7 @@ public final class ACasoCasoM extends PCasoM
     {
         return new ACasoCasoM(
             cloneNode(this._casoM_),
-            cloneNode(this._caso_),
             cloneNode(this._valor_),
-            cloneNode(this._doisPontos_),
             cloneNode(this._comando_));
     }
 
@@ -80,31 +70,6 @@ public final class ACasoCasoM extends PCasoM
         this._casoM_ = node;
     }
 
-    public TCaso getCaso()
-    {
-        return this._caso_;
-    }
-
-    public void setCaso(TCaso node)
-    {
-        if(this._caso_ != null)
-        {
-            this._caso_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._caso_ = node;
-    }
-
     public PValor getValor()
     {
         return this._valor_;
@@ -128,31 +93,6 @@ public final class ACasoCasoM extends PCasoM
         }
 
         this._valor_ = node;
-    }
-
-    public TDoisPontos getDoisPontos()
-    {
-        return this._doisPontos_;
-    }
-
-    public void setDoisPontos(TDoisPontos node)
-    {
-        if(this._doisPontos_ != null)
-        {
-            this._doisPontos_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._doisPontos_ = node;
     }
 
     public PComando getComando()
@@ -185,9 +125,7 @@ public final class ACasoCasoM extends PCasoM
     {
         return ""
             + toString(this._casoM_)
-            + toString(this._caso_)
             + toString(this._valor_)
-            + toString(this._doisPontos_)
             + toString(this._comando_);
     }
 
@@ -201,21 +139,9 @@ public final class ACasoCasoM extends PCasoM
             return;
         }
 
-        if(this._caso_ == child)
-        {
-            this._caso_ = null;
-            return;
-        }
-
         if(this._valor_ == child)
         {
             this._valor_ = null;
-            return;
-        }
-
-        if(this._doisPontos_ == child)
-        {
-            this._doisPontos_ = null;
             return;
         }
 
@@ -238,21 +164,9 @@ public final class ACasoCasoM extends PCasoM
             return;
         }
 
-        if(this._caso_ == oldChild)
-        {
-            setCaso((TCaso) newChild);
-            return;
-        }
-
         if(this._valor_ == oldChild)
         {
             setValor((PValor) newChild);
-            return;
-        }
-
-        if(this._doisPontos_ == oldChild)
-        {
-            setDoisPontos((TDoisPontos) newChild);
             return;
         }
 

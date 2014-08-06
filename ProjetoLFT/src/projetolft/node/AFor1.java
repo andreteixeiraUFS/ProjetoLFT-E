@@ -7,12 +7,8 @@ import projetolft.analysis.*;
 @SuppressWarnings("nls")
 public final class AFor1 extends PFor1
 {
-    private TAte _ate_;
     private TNumeroInt _numeroInt_;
-    private TFaca _faca_;
     private PComando _comando_;
-    private TFimPara _fimPara_;
-    private TPontoVirgula _pontoVirgula_;
 
     public AFor1()
     {
@@ -20,25 +16,13 @@ public final class AFor1 extends PFor1
     }
 
     public AFor1(
-        @SuppressWarnings("hiding") TAte _ate_,
         @SuppressWarnings("hiding") TNumeroInt _numeroInt_,
-        @SuppressWarnings("hiding") TFaca _faca_,
-        @SuppressWarnings("hiding") PComando _comando_,
-        @SuppressWarnings("hiding") TFimPara _fimPara_,
-        @SuppressWarnings("hiding") TPontoVirgula _pontoVirgula_)
+        @SuppressWarnings("hiding") PComando _comando_)
     {
         // Constructor
-        setAte(_ate_);
-
         setNumeroInt(_numeroInt_);
 
-        setFaca(_faca_);
-
         setComando(_comando_);
-
-        setFimPara(_fimPara_);
-
-        setPontoVirgula(_pontoVirgula_);
 
     }
 
@@ -46,43 +30,14 @@ public final class AFor1 extends PFor1
     public Object clone()
     {
         return new AFor1(
-            cloneNode(this._ate_),
             cloneNode(this._numeroInt_),
-            cloneNode(this._faca_),
-            cloneNode(this._comando_),
-            cloneNode(this._fimPara_),
-            cloneNode(this._pontoVirgula_));
+            cloneNode(this._comando_));
     }
 
     @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseAFor1(this);
-    }
-
-    public TAte getAte()
-    {
-        return this._ate_;
-    }
-
-    public void setAte(TAte node)
-    {
-        if(this._ate_ != null)
-        {
-            this._ate_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._ate_ = node;
     }
 
     public TNumeroInt getNumeroInt()
@@ -110,31 +65,6 @@ public final class AFor1 extends PFor1
         this._numeroInt_ = node;
     }
 
-    public TFaca getFaca()
-    {
-        return this._faca_;
-    }
-
-    public void setFaca(TFaca node)
-    {
-        if(this._faca_ != null)
-        {
-            this._faca_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._faca_ = node;
-    }
-
     public PComando getComando()
     {
         return this._comando_;
@@ -160,105 +90,27 @@ public final class AFor1 extends PFor1
         this._comando_ = node;
     }
 
-    public TFimPara getFimPara()
-    {
-        return this._fimPara_;
-    }
-
-    public void setFimPara(TFimPara node)
-    {
-        if(this._fimPara_ != null)
-        {
-            this._fimPara_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._fimPara_ = node;
-    }
-
-    public TPontoVirgula getPontoVirgula()
-    {
-        return this._pontoVirgula_;
-    }
-
-    public void setPontoVirgula(TPontoVirgula node)
-    {
-        if(this._pontoVirgula_ != null)
-        {
-            this._pontoVirgula_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._pontoVirgula_ = node;
-    }
-
     @Override
     public String toString()
     {
         return ""
-            + toString(this._ate_)
             + toString(this._numeroInt_)
-            + toString(this._faca_)
-            + toString(this._comando_)
-            + toString(this._fimPara_)
-            + toString(this._pontoVirgula_);
+            + toString(this._comando_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._ate_ == child)
-        {
-            this._ate_ = null;
-            return;
-        }
-
         if(this._numeroInt_ == child)
         {
             this._numeroInt_ = null;
             return;
         }
 
-        if(this._faca_ == child)
-        {
-            this._faca_ = null;
-            return;
-        }
-
         if(this._comando_ == child)
         {
             this._comando_ = null;
-            return;
-        }
-
-        if(this._fimPara_ == child)
-        {
-            this._fimPara_ = null;
-            return;
-        }
-
-        if(this._pontoVirgula_ == child)
-        {
-            this._pontoVirgula_ = null;
             return;
         }
 
@@ -269,39 +121,15 @@ public final class AFor1 extends PFor1
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._ate_ == oldChild)
-        {
-            setAte((TAte) newChild);
-            return;
-        }
-
         if(this._numeroInt_ == oldChild)
         {
             setNumeroInt((TNumeroInt) newChild);
             return;
         }
 
-        if(this._faca_ == oldChild)
-        {
-            setFaca((TFaca) newChild);
-            return;
-        }
-
         if(this._comando_ == oldChild)
         {
             setComando((PComando) newChild);
-            return;
-        }
-
-        if(this._fimPara_ == oldChild)
-        {
-            setFimPara((TFimPara) newChild);
-            return;
-        }
-
-        if(this._pontoVirgula_ == oldChild)
-        {
-            setPontoVirgula((TPontoVirgula) newChild);
             return;
         }
 
