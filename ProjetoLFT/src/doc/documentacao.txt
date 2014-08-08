@@ -1,15 +1,15 @@
 Arquivo auxiliar funcionamento do projeto:
 
-1 - A classe "Main" testa o lÈxico.
-2 - A classe "MyLexer" È uma heranÁa de Lexer e resolve o problema dos parentÍses aninhados/balanceados.
-3 - A clase "Main_Parser" testa o sint·tico.
-5 - A gram·tica se encontra dentro da pasta "src" e da pasta/pacote "doc" do projeto com o nome "portugol.grammar".
+1 - A classe "Main" testa o l√©xico.
+2 - A classe "MyLexer" √© uma heran√ßa de Lexer e resolve o problema dos parent√™ses aninhados/balanceados.
+3 - A clase "Main_Parser" testa o sint√°tico.
+5 - A gram√°tica se encontra dentro da pasta "src" e da pasta/pacote "doc" do projeto com o nome "portugol.grammar".
 6 - O arquivo de teste usado por mim encontra - se na pasta principal do projeto com o nome "teste.txt".
 7 -Para testar diretamente no eclipse usar linhas comentadas logo no inicio do codigo ou adicionar o 
 caminho do .txt teste nos argumentos da execucao
-8 - Dentro da pasta principal do projeto tambÈm encontra - se um .jar, "exe.jar", para realizar os
-teste via prompt de comando. (AtenÁ„o ao gerar novo .jar, definir a classe principal, nesse caso j· est·
-com o Main_Parser).
-9 - AtravÈs do prompt de comando, podemos passar o argumento diretamente via a linha de comando de execuÁ„o
+8 - Dentro da pasta principal do projeto tamb√©m encontra - se um .jar, "exe.jar", para realizar os
+teste via prompt de comando. (Aten√ß√£o ao gerar novo .jar, definir a classe principal, nesse caso j√° est√°
+com o Main_Test).
+9 - Atrav√©s do prompt de comando, podemos passar o argumento diretamente via a linha de comando de execu√ß√£o
 ou mandar rodar somente e digitar o caminho do arquivo.
 
