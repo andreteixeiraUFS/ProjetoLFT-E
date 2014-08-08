@@ -5,10 +5,10 @@ package projetolft.node;
 import projetolft.analysis.*;
 
 @SuppressWarnings("nls")
-public final class AVazio extends PVazio
+public final class ACasoM extends PCasoM
 {
 
-    public AVazio()
+    public ACasoM()
     {
         // Constructor
     }
@@ -16,13 +16,13 @@ public final class AVazio extends PVazio
     @Override
     public Object clone()
     {
-        return new AVazio();
+        return new ACasoM();
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAVazio(this);
+        ((Analysis) sw).caseACasoM(this);
     }
 
     @Override

@@ -108,5 +108,5 @@ se (beta>(5+8)) entao
 escreva('ola mundo cruel');
 fim se;
 
-/*c/*a/*b*/*/*/
+/*c/*a/*b   // rtedrrd*/*/*/
  fim.

@@ -1,9 +1,9 @@
 /* Universidade Federal de Sergipe
  Linguagens Formais e Tradutores
- Projeto Compilador - Parte Sintatica 
+ Projeto Compilador 
  Alunos: Andre Teixeira */
 
-package projetolft;
+package test;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -15,12 +15,13 @@ import projetolft.lexer.LexerException;
 import projetolft.node.Start;
 import projetolft.parser.Parser;
 import projetolft.parser.ParserException;
+import projetolft.MyLexer;
 
 /**
  * 
  * @author Andre
  */
-public class Main_Parser {
+public class Main_Test {
 	public static void main(String[] args) throws FileNotFoundException,
 			ParserException, LexerException {
 
@@ -42,7 +43,7 @@ public class Main_Parser {
 			ent.close();
 		}*/
 
-		System.out.println("           Analisador sintatico\n");
+		System.out.println("          Compilador\n");
 		System.out.println("Codigo de entrada: " + args[0]);
 
 		for (String arg : args) {

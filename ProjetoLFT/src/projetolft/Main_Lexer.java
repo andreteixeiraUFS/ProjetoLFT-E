@@ -21,8 +21,8 @@ public class Main_Lexer {
   * ou adicionar o caminho do .txt teste nos argumentos da execucao
   * */
     	//args = new String[1];
-    	//args[0]="C://workspace//ProjetoLFT-E//ProjetoLFT//teste.txt";
-   
+    	//args[0]="C://Users//Andre//git//ProjetoLFT-E//ProjetoLFT//teste.txt";
+   /*
     	if (args.length==0){
     		args = new String[1];
     		Scanner ent = new Scanner(System.in);
@@ -30,7 +30,7 @@ public class Main_Lexer {
 			System.out.println("Exemplo de caminho: C:\\Users\\Fulano\\Documentos\\codigo.txt ");
     		args[0]= ent.nextLine();
     		ent.close();
-    	}
+    	}*/
     			
         int linha = 0, coluna = 0;
         for (String arg : args) {

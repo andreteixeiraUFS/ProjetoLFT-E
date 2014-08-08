@@ -81,12 +81,6 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAVazio(AVazio node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
     public void caseADeclmDeclaracao(ADeclmDeclaracao node)
     {
         defaultCase(node);
@@ -177,7 +171,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAVazioComando(AVazioComando node)
+    public void caseAComando(AComando node)
     {
         defaultCase(node);
     }
@@ -298,12 +292,6 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseAMenosExpExp(AMenosExpExp node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseALogExp(ALogExp node)
     {
         defaultCase(node);
     }
@@ -579,7 +567,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseANadaCasoM(ANadaCasoM node)
+    public void caseACasoM(ACasoM node)
     {
         defaultCase(node);
     }

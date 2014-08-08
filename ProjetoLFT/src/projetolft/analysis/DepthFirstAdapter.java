@@ -69,23 +69,6 @@ public class DepthFirstAdapter extends AnalysisAdapter
         outAProgramaEst(node);
     }
 
-    public void inAVazio(AVazio node)
-    {
-        defaultIn(node);
-    }
-
-    public void outAVazio(AVazio node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseAVazio(AVazio node)
-    {
-        inAVazio(node);
-        outAVazio(node);
-    }
-
     public void inADeclmDeclaracao(ADeclmDeclaracao node)
     {
         defaultIn(node);
@@ -457,25 +440,21 @@ public class DepthFirstAdapter extends AnalysisAdapter
         outAAvalieComando(node);
     }
 
-    public void inAVazioComando(AVazioComando node)
+    public void inAComando(AComando node)
     {
         defaultIn(node);
     }
 
-    public void outAVazioComando(AVazioComando node)
+    public void outAComando(AComando node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAVazioComando(AVazioComando node)
+    public void caseAComando(AComando node)
     {
-        inAVazioComando(node);
-        if(node.getVazio() != null)
-        {
-            node.getVazio().apply(this);
-        }
-        outAVazioComando(node);
+        inAComando(node);
+        outAComando(node);
     }
 
     public void inANumIntValor(ANumIntValor node)
@@ -928,27 +907,6 @@ public class DepthFirstAdapter extends AnalysisAdapter
             node.getExp().apply(this);
         }
         outAMenosExpExp(node);
-    }
-
-    public void inALogExp(ALogExp node)
-    {
-        defaultIn(node);
-    }
-
-    public void outALogExp(ALogExp node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseALogExp(ALogExp node)
-    {
-        inALogExp(node);
-        if(node.getExplogica() != null)
-        {
-            node.getExplogica().apply(this);
-        }
-        outALogExp(node);
     }
 
     public void inATermoExpA(ATermoExpA node)
@@ -2056,24 +2014,20 @@ public class DepthFirstAdapter extends AnalysisAdapter
         outACasoCasoM(node);
     }
 
-    public void inANadaCasoM(ANadaCasoM node)
+    public void inACasoM(ACasoM node)
     {
         defaultIn(node);
     }
 
-    public void outANadaCasoM(ANadaCasoM node)
+    public void outACasoM(ACasoM node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseANadaCasoM(ANadaCasoM node)
+    public void caseACasoM(ACasoM node)
     {
-        inANadaCasoM(node);
-        if(node.getVazio() != null)
-        {
-            node.getVazio().apply(this);
-        }
-        outANadaCasoM(node);
+        inACasoM(node);
+        outACasoM(node);
     }
 }

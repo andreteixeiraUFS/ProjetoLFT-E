@@ -13,7 +13,6 @@ public interface Analysis extends Switch
 
     void caseStart(Start node);
     void caseAProgramaEst(AProgramaEst node);
-    void caseAVazio(AVazio node);
     void caseADeclmDeclaracao(ADeclmDeclaracao node);
     void caseAConstDeclaracao(AConstDeclaracao node);
     void caseADeclMDeclM(ADeclMDeclM node);
@@ -29,7 +28,7 @@ public interface Analysis extends Switch
     void caseAEnquantoComando(AEnquantoComando node);
     void caseASeComando(ASeComando node);
     void caseAAvalieComando(AAvalieComando node);
-    void caseAVazioComando(AVazioComando node);
+    void caseAComando(AComando node);
     void caseANumIntValor(ANumIntValor node);
     void caseANumRealValor(ANumRealValor node);
     void caseACharValor(ACharValor node);
@@ -50,7 +49,6 @@ public interface Analysis extends Switch
     void caseAVariavelExp(AVariavelExp node);
     void caseAValorExp(AValorExp node);
     void caseAMenosExpExp(AMenosExpExp node);
-    void caseALogExp(ALogExp node);
     void caseATermoExpA(ATermoExpA node);
     void caseAMaisExpA(AMaisExpA node);
     void caseAVarExpA(AVarExpA node);
@@ -96,7 +94,7 @@ public interface Analysis extends Switch
     void caseANormalAvalieEst(ANormalAvalieEst node);
     void caseAElseAvalieEst(AElseAvalieEst node);
     void caseACasoCasoM(ACasoCasoM node);
-    void caseANadaCasoM(ANadaCasoM node);
+    void caseACasoM(ACasoM node);
 
     void caseTVirgula(TVirgula node);
     void caseTDoisPontos(TDoisPontos node);
